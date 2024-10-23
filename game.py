@@ -52,10 +52,10 @@ class game():
     self.display()
     while True:
       letter = input("Guess a letter: ").lower()
-      if len(letter) == 1 and letter.isalpha():
+      if len(letter) == 1 and letter.isalpha() and letter not in self.guessed:
         break
       else:
-        print("Invalid input. Please enter a single letter.")
+        print("Invalid input. Please enter a single letter that you haven't guessed yet.")
     self.guess(letter)
     return self.is_game_over()
   
