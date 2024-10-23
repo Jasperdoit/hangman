@@ -15,13 +15,13 @@ class game():
 
   def display_lives(self):
     print(hangman_art[len(hangman_art) - self.lives - 1])
-    print(f"Lives: {self.lives}")
+    print(f"Levens: {self.lives}")
 
   def display_guessed_letters(self):
-    print(f"Guessed letters: {', '.join(self.guessed)}")
+    print(f"Geraden letters: {', '.join(self.guessed)}")
   
   def display_word_progress(self):
-    print("Word: ", end="")
+    print("Woord: ", end="")
     for letter in self.word:
       if letter in self.guessed:
         print(letter, end="")
@@ -38,24 +38,24 @@ class game():
     if self.lives == 0:
       clear_screen()
       self.display_lives()
-      print("You lose!")
-      print(f"The word was: {self.word}")
+      print("Je hebt verloren!")
+      print(f"Het woord was: {self.word}")
       return True
     for letter in self.word:
       if letter not in self.guessed:
         return False
     clear_screen()
-    print("You win!")
+    print("Je hebt gewonnen!")
     return True
   
   def do_game_cycle(self):
     self.display()
     while True:
-      letter = input("Guess a letter: ").lower()
-      if len(letter) == 1 and letter.isalpha():
+      letter = input("Raad een letter: ").lower()
+      if len(letter) == 1 and letter.isalpha() and letter not in self.guessed:
         break
       else:
-        print("Invalid input. Please enter a single letter.")
+        print("Kan niet. Vul één letter in die je nog niet geraden hebt.")
     self.guess(letter)
     return self.is_game_over()
   
