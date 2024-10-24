@@ -1,8 +1,9 @@
+from getpass import getpass
 from game import play_game
 def configure_word():
     word = ""
     while not word:
-        temp = input("Vul een woord in om te raden: ").strip()
+        temp = getpass("Vul een woord in om te raden: ").strip()
         if temp.isalpha():
             word = temp
             return word
