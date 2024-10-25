@@ -18,7 +18,7 @@ class game():
     print(f"Levens: {self.lives}")
 
   def display_guessed_letters(self):
-    print(f"Geraden letters: {', '.join(self.guessed)}")
+    print(f"Geraden letters: {', '.join(sorted(self.guessed))}")
   
   def display_word_progress(self):
     print("Woord: ", end="")
